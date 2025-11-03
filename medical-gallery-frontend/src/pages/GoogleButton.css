@@ -1,0 +1,63 @@
+/* Custom Google Sign-In Button */
+.google-signin-button {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 12px 24px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.google-signin-button:hover {
+  background: #f8f8f8;
+  border-color: #4285f4;
+  box-shadow: 0 4px 8px rgba(66, 133, 244, 0.2);
+  transform: translateY(-1px);
+}
+
+.google-signin-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.google-signin-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.google-signin-button:disabled:hover {
+  transform: none;
+  border-color: #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.google-icon {
+  flex-shrink: 0;
+}
+
+.google-signin-button span {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: #555;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .google-signin-button {
+    max-width: 100%;
+    font-size: 15px;
+    padding: 11px 20px;
+  }
+}
