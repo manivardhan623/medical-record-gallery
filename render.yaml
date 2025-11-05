@@ -1,0 +1,35 @@
+services:
+  # Backend API Service
+  - type: web
+    name: medical-gallery-api
+    env: java
+    rootDir: gallery-api
+    buildCommand: chmod +x mvnw && ./mvnw clean package -DskipTests
+    startCommand: java -jar target/*.jar
+    plan: free
+    envVars:
+      - key: FRONTEND_URL
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: JWT_SECRET
+        value: MedicalGallerySecretKeyForJWT2024SecurityPurpose12345678901234567890
+      - key: JWT_EXPIRATION
+        value: 86400000
+    healthCheckPath: /api/auth/health
+
+  # Frontend Service
+  - type: web
+    name: medical-gallery-frontend
+    env: node
+    rootDir: medical-gallery-frontend
+    buildCommand: npm install && npm run build
+    startCommand: npx serve -s build -l $PORT
+    plan: free
+    envVars:
+      - key: REACT_APP_API_URL
+        sync: false
+      - key: REACT_APP_GOOGLE_CLIENT_ID
+        sync: false
