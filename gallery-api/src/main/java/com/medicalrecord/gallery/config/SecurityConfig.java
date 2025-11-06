@@ -15,19 +15,14 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
-            .cors(cors -> cors.configure(http))
+            .cors(cors -> {}) // Use default CORS configuration from CorsConfig
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
                     "/api/**",
-                    "/oauth2/**",
-                    "/login/**",
                     "/error",
                     "/h2-console/**"
                 ).permitAll()
                 .anyRequest().authenticated()
-            )
-            .oauth2Login(oauth2 -> oauth2
-                .defaultSuccessUrl("/api/auth/oauth2/success", true)
             )
             .sessionManagement(session -> session
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
