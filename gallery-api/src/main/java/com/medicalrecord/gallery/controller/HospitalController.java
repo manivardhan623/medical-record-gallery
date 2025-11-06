@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/hospital")
-@CrossOrigin(origins = {"http://localhost:3000", "http://10.231.20.144:3000"})
+@CrossOrigin(origins = {"http://localhost:3000", "http://10.231.20.144:3000", "${frontend.url}"})
 public class HospitalController {
 
     @Autowired
