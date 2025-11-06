@@ -18,6 +18,7 @@ public class SecurityConfig {
             .cors(cors -> {}) // Use default CORS configuration from CorsConfig
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
+                    "/",
                     "/api/**",
                     "/error",
                     "/h2-console/**"
